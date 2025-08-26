@@ -14,11 +14,21 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('HomeView is working', style: TextStyle(fontSize: 20)),
+            Text('HomeView', style: TextStyle(fontSize: 20)),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () => Get.toNamed('/counter'),
               child: Text('Go to counter'),
+            ),
+            // SizedBox(height: 10),
+            // ElevatedButton(
+            //   onPressed: () => Get.toNamed('/form-pendaftaran'),
+            //   child: Text('Go to Form'),
+            // ),
+            SizedBox(height: 10),
+            FloatingActionButton(
+              onPressed: () => Get.toNamed('/form-pendaftaran'),
+              child: Icon(Icons.send),
             ),
           ],
         ),
