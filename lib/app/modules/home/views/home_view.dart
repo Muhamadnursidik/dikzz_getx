@@ -23,7 +23,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('HomeView'), centerTitle: true),
       body: Obx(() => pages[controller.selectedIndex.value]),
       bottomNavigationBar: ConvexAppBar(
         items: const [

@@ -10,16 +10,20 @@ class AuthController extends GetxController {
   var isLoading = false.obs;
 
   Future<void> login(String email, String password) async {
-    isLoading.value = true;
-    final res = await api.login(email, password);
-    isLoading.value = false;
-
-    if (res.statusCode == 200) {
-      final token = res.body['access_token'];
-      box.write('token', token);
-      Get.offAllNamed(Routes.HOME);
-    } else {
-      Get.snackbar("Error", res.body['message'] ?? "Login gagal");
+    try {
+      isLoading.value = true;
+      final res = await api.login(email, password);
+      if (res.statusCode == 200) {
+        final token = res.body['access_token'];
+        box.write('token', token);
+        Get.offAllNamed(Routes.HOME);
+      } else {
+        Get.snackbar("Error", res.body['message'] ?? "Login gagal");
+      }
+    } catch (e) {
+      Get.snackbar("Error", "Terjadi kesalahan: $e");
+    } finally {
+      isLoading.value = false;
     }
   }
 

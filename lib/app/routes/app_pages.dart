@@ -1,3 +1,7 @@
+import 'package:dikzz_getx/app/data/models/post.dart';
+import 'package:dikzz_getx/app/modules/post/views/post_create.dart';
+import 'package:dikzz_getx/app/modules/post/views/post_edit.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../middlewares/auth_middleware.dart';
@@ -47,6 +51,25 @@ class AppPages {
     GetPage(
       name: _Paths.POST,
       page: () => PostView(),
+      binding: PostBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: _Paths.CREATE_POST,
+      page: () => CreatePostView(),
+      binding: PostBinding(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: _Paths.EDIT_POST,
+      page: () {
+        final post = Get.arguments as DataPost?;
+        if (post == null) {
+          Get.offNamed(Routes.POST);
+          return Container();
+        }
+        return EditPostView(post: post);
+      },
       binding: PostBinding(),
       middlewares: [AuthMiddleware()],
     ),

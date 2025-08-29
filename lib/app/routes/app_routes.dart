@@ -7,6 +7,8 @@ abstract class Routes {
   static const COUNTER = _Paths.COUNTER;
   static const FORM_PENDAFTARAN = _Paths.FORM_PENDAFTARAN;
   static const POST = _Paths.POST;
+  static const CREATE_POST = _Paths.CREATE_POST;
+  static const EDIT_POST = _Paths.EDIT_POST;
   static const QURAN = _Paths.QURAN;
   static const AUTH = _Paths.AUTH;
   static const LOGIN = _Paths.LOGIN;
@@ -20,6 +22,8 @@ abstract class _Paths {
   static const COUNTER = '/counter';
   static const FORM_PENDAFTARAN = '/form-pendaftaran';
   static const POST = '/post';
+  static const EDIT_POST = '/post/edit';
+  static const CREATE_POST = '/post/create';
   static const QURAN = '/quran';
   static const AUTH = '/auth';
   static const LOGIN = '/login';
